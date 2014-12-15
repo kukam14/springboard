@@ -13,7 +13,7 @@
 				return;
 			}
 			
-			boardFrm.submit()
+			boardFrm.submit();
 		}
 		
 	</script>

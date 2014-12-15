@@ -34,6 +34,11 @@ public class MainServiceImpl implements MainService {
 	public List getList(Map<String, Object> paramMap) {
 		return mainDao.getList(paramMap);
 	}
+
+	@Override
+	public int writeRefuel(Map<String, Object> paramMap) {
+		return mainDao.writeRefuel(paramMap);
+	}
 	
 	
 

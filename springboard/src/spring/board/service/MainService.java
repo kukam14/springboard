@@ -12,6 +12,8 @@ public interface MainService {
 	public int writeProc(Map<String, Object> paramMap) ;
 	
 	public int writeProc2(Board board) ;
+	
+	public int writeRefuel(Map<String, Object> paramMap) ;
 
 	@SuppressWarnings("rawtypes")
 	public List getList(Map<String, Object> paramMap) ;
