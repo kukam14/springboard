@@ -29,6 +29,7 @@ public class MainServiceImpl implements MainService {
 		return mainDao.writeProc2(board);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getList(Map<String, Object> paramMap) {
 		return mainDao.getList(paramMap);

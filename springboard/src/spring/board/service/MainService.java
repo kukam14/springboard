@@ -13,6 +13,7 @@ public interface MainService {
 	
 	public int writeProc2(Board board) ;
 
+	@SuppressWarnings("rawtypes")
 	public List getList(Map<String, Object> paramMap) ;
 	
 
