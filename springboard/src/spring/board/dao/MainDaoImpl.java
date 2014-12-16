@@ -30,9 +30,4 @@ public class MainDaoImpl extends SqlSessionDaoSupport implements MainDao {
 		return (String)getSqlSession().selectOne("main.getUserPwd", userid);
 	}
 
-	@Override
-	public int writeRefuel(Map<String, Object> paramMap) {
-		return getSqlSession().insert("main.writeRefuel", paramMap);
-	}
-	
 }

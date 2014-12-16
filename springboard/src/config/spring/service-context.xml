@@ -14,4 +14,12 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="logService" class="spring.carlog.service.CarLogServiceImpl">
+		<property name="carLogDao">
+			<bean class="spring.carlog.dao.CarLogDaoImpl">
+				<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+			</bean>
+		</property>
+	</bean>
 </beans>

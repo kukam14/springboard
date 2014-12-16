@@ -21,7 +21,6 @@ public class BoardController {
 	@Autowired
 	private MainService mainService;
 	
-	
 	@RequestMapping("/hello.do")
 	public void hello(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
 		model.put("title", "나의 첫번째 스프링");
@@ -39,11 +38,6 @@ public class BoardController {
 	
 	@RequestMapping("/writeForm2.do")
 	public void writeForm2(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
-		
-	}
-	
-	@RequestMapping("/writeRefuelForm.do")
-	public void writeRefuelForm(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
 		
 	}
 	
@@ -82,25 +76,6 @@ public class BoardController {
 
 	}
 
-	@RequestMapping("/writeRefuel.do")
-	public ModelAndView writeRefuel(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
-		//Form 에서 넘어 오는 값  찍기  	paramMap 안에 Form 에서 넘어 오는 값이 있음	
-		System.out.println("title = " + paramMap.get("refuel_date"));
-		System.out.println("content = " + paramMap.get("distance"));
-		
-		//저장하기 위하여 paramMap 을 넘긴다.
-		int writeCnt = mainService.writeRefuel(paramMap);
-		
-		System.out.println(writeCnt + "건 입력되었습니다/");
-		
-		//처리 후 redirect
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/writeRefuelForm.do");
-		return mav;		
-	}
-
-	
-	
 	@RequestMapping("/list.do")	
 	public void list(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
 		model.put("results", mainService.getList(paramMap)) ;
