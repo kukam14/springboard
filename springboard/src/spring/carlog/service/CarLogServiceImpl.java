@@ -16,5 +16,10 @@ public class CarLogServiceImpl implements CarLogService {
 	public int writeRefuelProc(Map<String, Object> paramMap) {
 		return carLogDao.writeRefuelProc(paramMap);
 	}
+
+	@Override
+	public int writeRepairProc(Map<String, Object> paramMap) {
+		return carLogDao.writeRepairProc(paramMap);
+	}
 	
 }

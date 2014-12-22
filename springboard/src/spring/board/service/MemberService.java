@@ -18,10 +18,10 @@ public class MemberService implements UserDetailsService  {
 	private MainDao mainDao;
 	
 	public void setMainDao(MainDao mainDao) {
-		this.mainDao = mainDao;
+		this.mainDao = mainDao; 
 	}
 
-	
+	 
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {

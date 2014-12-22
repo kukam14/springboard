@@ -13,7 +13,7 @@ public class MainServiceImpl implements MainService {
 	public void setMainDao(MainDao mainDao) {
 		this.mainDao = mainDao;
 	}
-
+	
 	public String getToday() {
 		return mainDao.getToday();
 	}

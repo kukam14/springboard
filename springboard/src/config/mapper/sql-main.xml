@@ -17,9 +17,16 @@
 	</insert>
 	
 	<insert id="writeRefuelProc" parameterType="java.util.Map">
-		insert into carlog_refuel_info(refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, description, regid, regdate)
-		values(#{refuel_date}, #{distance}, #{gas_liter}, #{price}, #{unit_price}, #{gas_station}, 0, #{description}, 'system', sysdate())
+		insert into carlog_refuel_info(refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, description, regid, regdate, pre_refuel_distance)
+		values(#{refuel_date}, #{distance}, #{gas_liter}, #{price}, #{unit_price}, #{gas_station}, #{fuel_eff_rate}, #{description}, 'system', sysdate(), #{pre_refuel_distance})
+	</insert>
+	
+	<insert id="writeRepairProc" parameterType="java.util.Map">
+		insert into carlog_repair_info(repair_date, distance, title, price, repair_shop, description, regid, regdate)
+		values(#{repair_date}, #{distance}, #{title}, #{price}, #{repair_shop}, #{description}, 'system', sysdate())
 	</insert> 
+	
+	
 	
 	<select id="getList" parameterType="java.util.Map" resultType="java.util.HashMap">
 		select no, title, content from springboard

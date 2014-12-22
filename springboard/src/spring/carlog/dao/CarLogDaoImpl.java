@@ -11,4 +11,9 @@ public class CarLogDaoImpl extends SqlSessionDaoSupport implements CarLogDao {
 		return getSqlSession().insert("main.writeRefuelProc", paramMap);
 	}
 
+	@Override
+	public int writeRepairProc(Map<String, Object> paramMap) {
+		return getSqlSession().insert("main.writeRepairProc", paramMap);
+	}
+
 }
