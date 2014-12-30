@@ -22,4 +22,29 @@ public class CarLogServiceImpl implements CarLogService {
 		return carLogDao.writeRepairProc(paramMap);
 	}
 	
+	@Override
+	public int writeParkingProc(Map<String, Object> paramMap) {
+		return carLogDao.writeParkingProc(paramMap);
+	}
+
+	@Override
+	public int writeTollProc(Map<String, Object> paramMap) {
+		return carLogDao.writeTollProc(paramMap);
+	}
+
+	@Override
+	public int writeEtcProc(Map<String, Object> paramMap) {
+		return carLogDao.writeEtcProc(paramMap);
+	}
+
+	@Override
+	public int writeInsuranceProc(Map<String, Object> paramMap) {
+		return carLogDao.writeInsuranceProc(paramMap);
+	}
+
+	@Override
+	public int writeTaxProc(Map<String, Object> paramMap) {
+		return carLogDao.writeTaxProc(paramMap);
+	}
+	
 }

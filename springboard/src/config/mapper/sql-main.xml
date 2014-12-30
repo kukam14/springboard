@@ -16,16 +16,47 @@
 		insert into springboard(title, content) values(#{title}, #{content})
 	</insert>
 	
+	<!-- CarLog 주유기록 -->
 	<insert id="writeRefuelProc" parameterType="java.util.Map">
 		insert into carlog_refuel_info(refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, description, regid, regdate, pre_refuel_distance)
 		values(#{refuel_date}, #{distance}, #{gas_liter}, #{price}, #{unit_price}, #{gas_station}, #{fuel_eff_rate}, #{description}, 'system', sysdate(), #{pre_refuel_distance})
 	</insert>
 	
+	<!-- CarLog 교체 및 정비기록 -->
 	<insert id="writeRepairProc" parameterType="java.util.Map">
 		insert into carlog_repair_info(repair_date, distance, title, price, repair_shop, description, regid, regdate)
 		values(#{repair_date}, #{distance}, #{title}, #{price}, #{repair_shop}, #{description}, 'system', sysdate())
 	</insert> 
 	
+	<!-- CarLog 주차기록 -->
+	<insert id="writeParkingProc" parameterType="java.util.Map">
+		insert into carlog_parking_info(parking_date, place, start_time, end_time, park_price, description, regid, regdate)
+		values(#{parking_date}, #{place}, #{start_time}, #{end_time}, #{park_price}, #{description}, 'system', sysdate())
+	</insert> 
+	
+	<!-- CarLog 통행료기록 -->
+	<insert id="writeTollProc" parameterType="java.util.Map">
+		insert into carlog_toll_info(toll_date, destination, toll_price, description, regid, regdate)
+		values(#{toll_date}, #{destination}, #{toll_price}, #{description}, 'system', sysdate())
+	</insert>
+	
+	<!-- CarLog 기타 지출기록 -->
+	<insert id="writeEtcProc" parameterType="java.util.Map">
+		insert into carlog_etc_info(etc_date, title, etc_price, description, regid, regdate)
+		values(#{etc_date}, #{title}, #{etc_price}, #{description}, 'system', sysdate())
+	</insert>
+	
+	<!-- CarLog 보험료기록 -->
+	<insert id="writeInsuranceProc" parameterType="java.util.Map">
+		insert into carlog_insurance_info(company, insur_start_date, insur_end_date, insur_price, description, regid, regdate)
+		values(#{company}, #{insur_start_date}, #{insur_end_date}, #{insur_price}, #{description}, 'system', sysdate())
+	</insert>
+	
+	<!-- CarLog 세금 납부기록 -->
+	<insert id="writeTaxProc" parameterType="java.util.Map">
+		insert into carlog_tax_info(tax_date, tax_price, regid, regdate)
+		values(#{tax_date}, #{tax_price}, 'system', sysdate())
+	</insert>
 	
 	
 	<select id="getList" parameterType="java.util.Map" resultType="java.util.HashMap">
