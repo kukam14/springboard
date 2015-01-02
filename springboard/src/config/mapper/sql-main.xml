@@ -22,6 +22,11 @@
 		values(#{refuel_date}, #{distance}, #{gas_liter}, #{price}, #{unit_price}, #{gas_station}, #{fuel_eff_rate}, #{description}, 'system', sysdate(), #{pre_refuel_distance})
 	</insert>
 	
+	<insert id="writeRefuelProc2" parameterType="spring.carlog.vo.Refuel">
+		insert into carlog_refuel_info(refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, description, regid, regdate, pre_refuel_distance)
+		values(#{refuel_date}, #{distance}, #{gas_liter}, #{price}, #{unit_price}, #{gas_station}, #{fuel_eff_rate}, #{description}, 'system', sysdate(), #{pre_refuel_distance})
+	</insert>
+	
 	<!-- CarLog 교체 및 정비기록 -->
 	<insert id="writeRepairProc" parameterType="java.util.Map">
 		insert into carlog_repair_info(repair_date, distance, title, price, repair_shop, description, regid, regdate)
@@ -65,6 +70,19 @@
 	
 	<select id="getUserPwd" parameterType="java.lang.String" resultType="java.lang.String">
 		select userpwd from springmember where userid = #{userid}
+	</select>
+	
+	<!-- CarLog Get Max Distance -->
+	<select id="getPreDistance" resultType="java.lang.Integer">
+		select max(distance) as pre_distance from carlog_refuel_info
+	</select>
+	
+	<!-- CarLog Get Max Distance -->
+	<select id="getPreRefuelInfo" resultType="spring.carlog.vo.Refuel">
+		select lid, 
+			refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, 
+			description, regid, regdate, pre_refuel_distance from carlog_refuel_info 
+		where lid = (select max(lid) from carlog_refuel_info)
 	</select>
 	
 </mapper>
