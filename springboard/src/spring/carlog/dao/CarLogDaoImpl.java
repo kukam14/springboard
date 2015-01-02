@@ -1,8 +1,11 @@
 package spring.carlog.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import spring.carlog.vo.Refuel;
 
 public class CarLogDaoImpl extends SqlSessionDaoSupport implements CarLogDao {
 
@@ -10,6 +13,25 @@ public class CarLogDaoImpl extends SqlSessionDaoSupport implements CarLogDao {
 	public int writeRefuelProc(Map<String, Object> paramMap) {
 		return getSqlSession().insert("main.writeRefuelProc", paramMap);
 	}
+	
+	@Override
+	public int writeRefuelProc2(Refuel refuel) {
+		return getSqlSession().insert("main.writeRefuelProc2", refuel);
+	}
+	
+	@Override
+	public int getPreDistance(){
+		int preDistance =  getSqlSession().selectOne("main.getPreDistance");
+		return preDistance ;
+	}
+	
+	@Override
+	public Refuel getPreRefuelInfo(){
+		Refuel refuel = new Refuel() ;
+		refuel = getSqlSession().selectOne("main.getPreRefuelInfo") ;
+		return refuel ;
+	}
+	
 
 	@Override
 	public int writeRepairProc(Map<String, Object> paramMap) {

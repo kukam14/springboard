@@ -5,11 +5,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.board.vo.Board;
 import spring.carlog.service.CarLogService;
+import spring.carlog.vo.Refuel;
 
 @Controller
 public class CarLogController {
@@ -28,6 +31,20 @@ public class CarLogController {
 		
 		//저장하기 위하여 paramMap을 넘긴다.
 		int writeCnt = logService.writeRefuelProc(paramMap);
+		
+		System.out.println(writeCnt + "건 입력되었습니다/");
+		
+		//처리 후 redirect
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/writeRefuelForm.do");
+		return mav;		
+	}
+	
+	@RequestMapping("/writeRefuel2.do")
+	public ModelAndView writeRefuel2(@ModelAttribute("refuel") Refuel refuel, ModelMap model) throws Throwable{
+		
+		//저장하기 위하여 paramMap을 넘긴다.
+		int writeCnt = logService.writeRefuelProc2(refuel);
 		
 		System.out.println(writeCnt + "건 입력되었습니다/");
 		

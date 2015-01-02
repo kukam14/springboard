@@ -1,8 +1,10 @@
 package spring.carlog.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import spring.carlog.dao.CarLogDao;
+import spring.carlog.vo.Refuel;
 
 public class CarLogServiceImpl implements CarLogService {
 	
@@ -14,7 +16,31 @@ public class CarLogServiceImpl implements CarLogService {
 	
 	@Override
 	public int writeRefuelProc(Map<String, Object> paramMap) {
+		int preDistance = getPreDistance() ;
+		int currentDistance = (int)paramMap.get("distance") ;
+		int mileage = currentDistance - preDistance ;	//주행거리
+		
 		return carLogDao.writeRefuelProc(paramMap);
+	}
+	
+	@Override
+	public int writeRefuelProc2(Refuel refuel) {
+		
+		
+		return carLogDao.writeRefuelProc2(refuel);
+	}
+	
+	
+	@Override
+	public Refuel getPreRefuelInfo(){
+		Refuel refuel = new Refuel() ;
+		refuel = carLogDao.getPreRefuelInfo() ;
+		return refuel ;
+	}
+	
+	@Override
+	public int getPreDistance(){
+		return carLogDao.getPreDistance() ;
 	}
 
 	@Override
@@ -46,5 +72,6 @@ public class CarLogServiceImpl implements CarLogService {
 	public int writeTaxProc(Map<String, Object> paramMap) {
 		return carLogDao.writeTaxProc(paramMap);
 	}
+
 	
 }
