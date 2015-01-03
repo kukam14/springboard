@@ -21,15 +21,12 @@ public class CarLogDaoImpl extends SqlSessionDaoSupport implements CarLogDao {
 	
 	@Override
 	public int getPreDistance(){
-		int preDistance =  getSqlSession().selectOne("main.getPreDistance");
-		return preDistance ;
+		return getSqlSession().selectOne("main.getPreDistance");
 	}
 	
 	@Override
 	public Refuel getPreRefuelInfo(){
-		Refuel refuel = new Refuel() ;
-		refuel = getSqlSession().selectOne("main.getPreRefuelInfo") ;
-		return refuel ;
+		return getSqlSession().selectOne("main.getPreRefuelInfo") ;
 	}
 	
 

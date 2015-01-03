@@ -77,10 +77,10 @@
 		select max(distance) as pre_distance from carlog_refuel_info
 	</select>
 	
-	<!-- CarLog Get Max Distance -->
+	<!-- CarLog Get Pre Refuel Info -->
 	<select id="getPreRefuelInfo" resultType="spring.carlog.vo.Refuel">
-		select lid, 
-			refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, 
+		select 
+			lid, refuel_date, distance, gas_liter, price, unit_price, gas_station, fuel_eff_rate, 
 			description, regid, regdate, pre_refuel_distance from carlog_refuel_info 
 		where lid = (select max(lid) from carlog_refuel_info)
 	</select>

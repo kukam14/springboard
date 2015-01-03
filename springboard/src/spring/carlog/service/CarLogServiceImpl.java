@@ -16,16 +16,24 @@ public class CarLogServiceImpl implements CarLogService {
 	
 	@Override
 	public int writeRefuelProc(Map<String, Object> paramMap) {
-		int preDistance = getPreDistance() ;
-		int currentDistance = (int)paramMap.get("distance") ;
-		int mileage = currentDistance - preDistance ;	//주행거리
-		
 		return carLogDao.writeRefuelProc(paramMap);
 	}
 	
 	@Override
 	public int writeRefuelProc2(Refuel refuel) {
 		
+		Refuel preRefuel = getPreRefuelInfo() ;
+		
+		//현재 주행거리 = 현재 총주행거리 - 이전 총주행거리
+		int curr_distance = refuel.getDistance() - preRefuel.getDistance() ;
+		
+		//연비 = 현재 주행거리 / 이전 주유량
+		float fuel_eff_rate = curr_distance / preRefuel.getGas_liter() ; 
+		
+		refuel.setPre_refuel_distance(curr_distance);
+		refuel.setFuel_eff_rate(fuel_eff_rate);
+		
+		System.out.println("refuel.toString() : "+refuel.toString());
 		
 		return carLogDao.writeRefuelProc2(refuel);
 	}
@@ -33,9 +41,7 @@ public class CarLogServiceImpl implements CarLogService {
 	
 	@Override
 	public Refuel getPreRefuelInfo(){
-		Refuel refuel = new Refuel() ;
-		refuel = carLogDao.getPreRefuelInfo() ;
-		return refuel ;
+		return carLogDao.getPreRefuelInfo() ;
 	}
 	
 	@Override

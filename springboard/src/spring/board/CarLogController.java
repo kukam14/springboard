@@ -26,6 +26,12 @@ public class CarLogController {
 		
 	}
 	
+	//주유기록
+	@RequestMapping("/writeRefuelForm2.do")
+	public void writeRefuelForm2(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
+		
+	}
+	
 	@RequestMapping("/writeRefuel.do")
 	public ModelAndView writeRefuel(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
 		
@@ -50,7 +56,7 @@ public class CarLogController {
 		
 		//처리 후 redirect
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/writeRefuelForm.do");
+		mav.setViewName("redirect:/writeRefuelForm2.do");
 		return mav;		
 	}
 	
