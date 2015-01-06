@@ -49,9 +49,8 @@ public class CarLogController {
 	@RequestMapping("/writeRefuel2.do")
 	public ModelAndView writeRefuel2(@ModelAttribute("refuel") Refuel refuel, ModelMap model) throws Throwable{
 		
-		//저장하기 위하여 paramMap을 넘긴다.
+		//저장하기 위하여 refuel을 넘긴다.
 		int writeCnt = logService.writeRefuelProc2(refuel);
-		
 		System.out.println(writeCnt + "건 입력되었습니다/");
 		
 		//처리 후 redirect
@@ -185,6 +184,32 @@ public class CarLogController {
 	public void example1(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
 		
 	}
+	
+	//Bootstrap Example
+	@RequestMapping("/starter_template.do")
+	public void starter_template(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
+		
+	}
+	
+	//Bootstrap Example
+	@RequestMapping("/bootstrap_sample.do")
+	public void bootstrap_sample(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
+		
+	}
+	
+	//Main Carlog
+	@RequestMapping("/main_carlog.do")
+	public void main_carlog(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
+		
+	}
+	
+	//Main GNB Carlog
+	@RequestMapping("/gnb_carlog.do")
+	public void gnb_carlog(@RequestParam Map<String, Object> paramMap, ModelMap model) throws Throwable{
+		
+	}
+	
+	
 	
 	
 }
