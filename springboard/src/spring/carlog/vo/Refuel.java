@@ -26,7 +26,7 @@ public class Refuel {
 	public String getRefuel_date() {
 		return refuel_date;
 	}
-
+	
 	public void setRefuel_date(String refuel_date) {
 		this.refuel_date = refuel_date;
 	}

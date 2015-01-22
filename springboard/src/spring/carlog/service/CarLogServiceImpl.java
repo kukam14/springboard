@@ -38,6 +38,12 @@ public class CarLogServiceImpl implements CarLogService {
 		return carLogDao.writeRefuelProc2(refuel);
 	}
 	
+	@Override
+	public int writeRefuelProc3(Refuel refuel) {
+		
+		return carLogDao.writeRefuelProc2(refuel);
+	}
+	
 	
 	@Override
 	public Refuel getPreRefuelInfo(){

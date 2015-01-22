@@ -32,7 +32,7 @@ public class CarLogServiceImplTest {
 	
 //	@Test
 	public void getPreDistance(){
-		System.out.println(svc.getPreRefuelInfo()) ;
+//		System.out.println(svc.getPreRefuelInfo()) ;
 		
 		/*Iterator it = svc.getPreRefuelInfo().entrySet().iterator() ;
 		while(it.hasNext()){
@@ -61,7 +61,7 @@ public class CarLogServiceImplTest {
 	public void writeRefuelProcTest() {
 		
 		for(Refuel refuel : refuelVoData2()){
-			svc.writeRefuelProc2(refuel) ;
+			svc.writeRefuelProc3(refuel) ;
 		}
 		
 	}

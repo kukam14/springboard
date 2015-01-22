@@ -32,13 +32,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		//$("#home").removeClass("active") ;
-		//$("#refuel").addClass("active") ;
-		
 		$("li").removeClass("active") ;
 		$("#refuel").addClass("active") ;
-		
-		
 	});
 
 	function doSubmit() {

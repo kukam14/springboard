@@ -59,7 +59,9 @@
       </div>
 
     </div><!-- /.container -->
-
+	
+	<img src="viewimage.img?filepath=d:\Images\bg\2048.jpg" height="240" width="168" />
+	
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

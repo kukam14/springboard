@@ -10,6 +10,8 @@ public interface CarLogService {
 	
 	public int writeRefuelProc2(Refuel refuel) ;
 	
+	public int writeRefuelProc3(Refuel refuel) ;
+	
 	public int getPreDistance() ;
 	
 	public Refuel getPreRefuelInfo() ;
